@@ -25,15 +25,5 @@ class DatabaseSeeder extends Seeder
             'citizenship' => '6582-55636',
             'photopath0' => 'sophiya.jpg',
         ]);
-        \App\Models\User::create([
-            'name' => 'Sophiya',
-            'email' => 'sophiya@gmail.com',
-            'role' => 'admin',
-            'address' => 'Gaindakot',
-            'phone' => '1234567890',
-            'password' => bcrypt('password'),
-            'citizenship' => '6582-55686',
-            'photopath0' => 'sophiya.jpg',
-        ]);
     }
 }

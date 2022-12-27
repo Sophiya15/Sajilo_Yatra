@@ -32,16 +32,19 @@
                         <h2 class=" text-2xl font-bold px-8 pt-2">My Profile</h2>
                         <hr class=" mt-2">
                         <button class="tablinks w-56 mt-2 py-2 px-5 border border-gray-600 rounded-md ml-10 active" onclick="openCity(event, 'myprofile')">My Information</button>
-                        <button class="tablinks w-56 mt-2 py-2 px-5 border border-gray-600 rounded-md ml-10" onclick="openCity(event, 'updatePassword')">Change Password</button>
-                       
+
                     <!-- My Booking close -->
                     
                 </div>
               
+
                 <div class="flex-1 bg-white md:ml-5 md:mt-0 pb-[5%]">
-                    
+                    <div class="px-[80%]"> 
+                        <button class =  " rounded-md shadow-md bg-indigo-500 text-white  px-10 py-2 mt-3 cursor-pointer hover:bg-indigo-600"> <a href="{{route('myhistory')}}">History </a> </button>
+                    </div> 
                     <div id="myprofile" class="px-5 tabcontent">
                     <h2 class="text-gray-500 text-xl font-bold px-8 pt-2">My Information</h2>
+            
                     <hr class="text-gray-600 mt-2">
                         <!-- Information Form Open -->
                             <div class="px-10 mt-5 my-5">
@@ -87,6 +90,8 @@
                                                 <input type="text" name="citizenship" id="citizenship" class=" w-full rounded-md mt-2 focus:border-indigo-300 focus:ring-indigo-300 text-gray-500" value="{{Auth::user()->citizenship}}" readonly>
                                                
                                             </div>
+
+
                                             <div class="mt-6">
                                             <a href="{{route('profile.edit',Auth::user()->id)}}" class="px-10 rounded-md bg-indigo-300 text-black hover:text-white hover:bg-indigo-500 py-1 my-5 cursor-pointer"> Edit Profile </a>
                                             </div>

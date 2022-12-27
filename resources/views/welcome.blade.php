@@ -17,17 +17,18 @@
             @foreach ($slideshows as $slideshow)
                 <div class="swiper-slide relative">
                     <img src="/storage/{{$slideshow->photopath}}" class="h-[100vh] w-full">
-                    {{-- <p class="absolute text-gray-300 text-xl bottom-6 text-center bg-black bg-opacity-40 w-full py-2">
-                        {{$slideshow->title}}
-                    </p> --}}
+                    <p class="absolute text-5xl top-[50%] text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-slate-600 px-9 w-full py-2">
+                        THE ROYAL ESSENCE OF JOURNEY
+                        <h1 class=" absolute top-[58%] px-10 py-3 font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-green-900 to-purple-300"> RELAXED JOURNEY EVER </h1>
+                        <p class="absolute top-[66%] text-xl text-white px-10 text-justify"> We offer you the delightful Journey within affordable prices.</p>
+                    </p>
                 </div>
             @endforeach
         
         
         </div>
     </div>
-
-
+<!-- swipper close -->
 <div> 
     <h1 class="text-center pt-[10%] font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-teal-400 to-slate-600"> Welcome To SajiloYatra </h1>
     <p class="text-2xl px-[20%] pt-5 pr-[15%]"> First of all thank you visiting our sites. Travelling is an amazing way to learn a lot of things in life. A lot of people around the world travel every year to many places. With the help of our car rental services you can book your own car and travel to various palces of nepal. We provide you the best cars within the affordable prices thats makes lifestyle even easier.. </p>

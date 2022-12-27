@@ -79,7 +79,7 @@
         </div>
         <div class="my-2 mt-5">
             <label class="text-gray-500">Problem</label>
-            <textarea name="problem" id="basic-example" class="w-full border-none shadow-lg rounded-md placeholder:text-gray-700 focus:ring-amber-500" placeholder="Problems that arise during the ride">{{$reporting->problem}}</textarea>
+            <textarea name="problem" id="" class="w-full border-none shadow-lg rounded-md placeholder:text-gray-700 focus:ring-amber-500" placeholder="Problems that arise during the ride">{{$reporting->problem}}</textarea>
             @error('problem')
                 <p class="text-red-500 p-2">
                     {{$message}}
@@ -88,7 +88,7 @@
         </div>
         <div class="my-2 mt-5">
             <label class="text-gray-500">Solution</label>
-            <textarea name="solution" id="basic-example" class="w-full border-none shadow-lg rounded-md placeholder:text-gray-700 focus:ring-amber-500" placeholder="Solutions or measure taken">{{$reporting->solution}}</textarea>
+            <textarea name="solution" id="" class="w-full border-none shadow-lg rounded-md placeholder:text-gray-700 focus:ring-amber-500" placeholder="Solutions or measure taken">{{$reporting->solution}}</textarea>
             @error('solution')
                 <p class="text-red-500 p-2">
                     {{$message}}

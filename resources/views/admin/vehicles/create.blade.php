@@ -46,7 +46,7 @@
 
 
                 <div class="my-2 mt-5">
-                    <label class="text-gray-500">Enter vehicle Type</label>
+                    <label class="text-gray-500">Enter vehicle Model</label>
                     <input type="text" name="model" id="" class="w-full border-none shadow-lg rounded-md placeholder:text-gray-700 focus:ring-amber-500" placeholder="Enter vehicle model" value="{{old('model')}}">
                     @error('model')
                         <p class="text-red-500 p-2">

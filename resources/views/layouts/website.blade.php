@@ -93,6 +93,13 @@
                 background-repeat: no-repeat;
             }
 
+            .car{
+                background-image: url('images/37.jpeg');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+
             .con{
                 background-image: url('images/cars/30.jpg');
                 background-size: cover;

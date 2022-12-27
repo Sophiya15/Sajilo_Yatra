@@ -23,6 +23,11 @@
         @endforeach
     </div> --}}
 
+    <div class="w-full h-[60vh] car shadow-lg"> 
+        <h1 class="text-6xl text-center pt-[13%] font-bold font-sans  text-teal-600"> Cars we provide</h1>
+        <p class="text-3xl text-white px-[41%] mt-3"> <a href="{{route('welcome')}}"> Home →<a href="{{route('cars')}}"> Cars </a></p>
+        </div>
+
     <div class="bg-gray-200 py-16">
         <div class="w-11/12 mx-auto">
             <p class="font-bold font-serif text-5xl text-center py-8">Choose your desired car</p>

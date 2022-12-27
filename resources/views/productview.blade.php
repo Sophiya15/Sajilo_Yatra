@@ -59,7 +59,7 @@
      
         </div>
         <div class="flex py-2">
-          <p class="font-bold text-2xl"> Driver </p>
+          <p class="font-bold text-2xl"> Driver: </p>
           <a href=""> <p class=" text-violet-500 px-2 text-2xl cursor-pointer">{{$vehicle->driver}}</p></a>
         </div>
         <p class="font-semibold text-2xl py-2">Fuel type: {{$vehicle->fuelType}}</p>

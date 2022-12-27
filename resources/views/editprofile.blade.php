@@ -17,7 +17,7 @@
 @endsection
 
 @section('main')
-{{-- @include('layouts.message') --}}
+@include('sweetalert::alert')
     <div class="">
         <div class="w-10/12 mx-auto ">
             <div class="md:flex mt-8 py-5">
@@ -28,7 +28,7 @@
                         <ul class="mt-2">
                             <li class="text-gray-700 hover:text-gray-900 pl-12 py-2">
                                 <a href="">
-                                    <i class="fas fa-user-cog pr-2"></i> My Information
+                                    <i class="fas fa-user-cog pr-2"></i>  My Information 
                                 </a>
                             </li>
                             <li class="text-gray-700 hover:text-gray-900 pl-12 mt-1 py-2">
@@ -90,7 +90,11 @@
                                             </div>
                                         </div>
                                     <!-- Mobile Box Close -->
-
+                                    <div class="mt-6">
+                                        <label for="citizenship" class="block text-gray-600 text-sm uppercase">Citizenship Number</label>
+                                        <input type="text" name="citizenship" id="citizenship" class=" w-full rounded-md mt-2 focus:border-indigo-300 focus:ring-indigo-300 text-gray-500" value="{{Auth::user()->citizenship}}">
+                                       
+                                    </div>
     
                                     <!-- Shipping Address Open -->
                                         <div id="gotoshipping">

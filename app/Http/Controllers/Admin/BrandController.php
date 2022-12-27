@@ -101,7 +101,22 @@ class BrandController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
+            'photopath'=>['nullable','image','mimes:png,jpg'],
         ]);
+        if($request->has('photopath0')){
+            $fname = Str::random(20);
+            $fexe = $request->file('photopath0')->extension();
+            $fpath = "$fname.$fexe";
+
+            $request->file('photopath0')->storeAs('public/brands', $fpath);
+
+            if($brand->photopath1){
+                Storage::delete('public/'. $brand->photopath1);
+            }
+
+            $data['photopath0'] = 'brands/'.$fpath;
+            
+        }
 
         $brand->update($data);
         Alert::success('Brand Updated Successfully');

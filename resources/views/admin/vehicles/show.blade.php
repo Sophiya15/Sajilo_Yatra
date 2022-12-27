@@ -88,12 +88,19 @@
                     </td>
                  </tr>
 
+
                  <tr class="border-2 h-12">
                     <th> Is Available</th>
                     <td class="px-7">
                         {{$vehicle->isAvailable == 1 ? 'Yes' : 'No'}}
                     </td>
                  </tr>
+                 <tr class="border-2 h-12">
+                    <th> Extra Feature </th>
+                    <td class="px-7">
+                        {{$vehicle->extra}}
+                    </td>
+                </tr>
 
                 <tr class="border-2 h-12">
                     <th> Created At</th>

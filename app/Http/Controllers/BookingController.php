@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Booking;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -53,8 +54,8 @@ class BookingController extends Controller
             'status' => 'nullable',
             'vehicle_id' => 'required',
         ]);
-        $parsedStartDate = Carbon::parse($request->start_date)->toDateString();
-        $parsedEndDate = Carbon::parse($request->end_date)->toDateString();
+        // $parsedStartDate = Carbon::parse($request->start_date)->toDateString();
+        // $parsedEndDate = Carbon::parse($request->end_date)->toDateString();
         // return $checkRental = Booking::whereDate('start_date', '<>', $parsedStartDate)
         //                                 ->whereDate('end_date', '<>', $parsedEndDate)
         //                                 ->where('status','confirmed')
@@ -62,17 +63,37 @@ class BookingController extends Controller
                 // ->whereNotBetween($parsedStartDate, ['start_date', 'end_date'])
                 // ->whereNotBetween($parsedEndDate, ['start_date', 'end_date'])
                                    
-             $checkRentalstatus = Booking::whereDate('start_date', '>=', $parsedStartDate)
-                                        ->whereDate('end_date', '<=', $parsedEndDate)
-                                        ->orWhere(function($middleClause) use ($parsedStartDate,$parsedEndDate) {
-                                            $middleClause
-                                                ->where('start_date','<=',$parsedStartDate)
-                                                ->where('end_date','>=', $parsedEndDate);
-                                        })
-                                    ->where('status','confirmed')
-                                    ->first();
+            //  $checkRentalstatus = Booking::whereDate('start_date', '>=', $parsedStartDate)
+            //                             ->whereDate('end_date', '<=', $parsedEndDate)
+            //                             ->orWhere(function($middleClause) use ($parsedStartDate,$parsedEndDate) {
+            //                                 $middleClause
+            //                                     ->where('start_date','<=',$parsedStartDate)
+            //                                     ->where('end_date','>=', $parsedEndDate);
+            //                             })
+            //                         ->where('status','confirmed')
+            //                         ->first();
 
-            if ($checkRentalstatus) {
+       
+  $parsedStartDate = Carbon::parse($request->start_date)->toDateString();
+  $parsedEndDate = Carbon::parse($request->end_date)->toDateString();
+  $vehicle_id = $request->input('vehicle_id');    
+          $found= Booking::query()->where('vehicle_id',$vehicle_id)
+        ->where(function($exits) use ($parsedStartDate,$parsedEndDate)
+        {
+            $exits->where(function ($findConflict) use ($parsedStartDate,$parsedEndDate) {
+                $findConflict->whereBetween('start_date',[$parsedStartDate,$parsedEndDate])
+                    ->orWhereBetween('end_date',[$parsedStartDate,$parsedEndDate]);
+            })
+            ->orWhere(function($middleClause) use ($parsedStartDate,$parsedEndDate) {
+                $middleClause
+                    ->where('start_date','<=',$parsedEndDate)
+                    ->where('end_date','>=',$parsedStartDate);
+            });
+        })
+       ->get();
+
+
+            if ($found->count()>0) {
                 Alert::error('Select other date/vehicle','(Vehicle already booked for that date, Sorry!)');
                  return redirect()->back();
 

@@ -102,7 +102,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
         <style>
             .dash{
-                background-color: #23395b;
+                background-color: #260869;
             }
 
             </style>
@@ -145,8 +145,8 @@
                 <div class="w-64 min-h-screen max-h-full h-full dash"> 
     
                     <ul class="text-white py-3 px-2">
-                    <li class="py-2 px-2 {{request()->routeIs('dashboard') ? 'bg-white text-blue-800' : ''}}">
-                        <a href="{{route('dashboard')}}" class="text-xl no-underline fas fa-tachometer-alt py-2 "> Dashboard</a>
+                        <li class="py-1 my-2 w-full px-3 {{request()->routeIs('dashboard') ? 'bg-white text-blue-800' : ''}}">
+                            <a href="{{route('dashboard')}}" class="text-xl no-underline fas fa-tachometer-alt py-2 "> Dashboard</a>
                     </li>
 
                     <li class="py-1 my-2  w-full px-3 {{request()->routeIs('admin.slideshows.*') ? 'bg-white text-blue-800' : ''}}">

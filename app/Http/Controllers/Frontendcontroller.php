@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\Review;
 use App\Models\Booking;
 use App\Models\Vehicle;
 use App\Models\Slideshow;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -94,15 +95,11 @@ class Frontendcontroller extends Controller
         return view('search',compact('vehicles'));
     }
     public function dashboard(){
-        $bookings = Booking::all()->count();
-        $brands = Brand::all()->count();
-        $vehicles = Vehicle::all()->count();
-        $users = User::all()->count();
-        $cbookings = Booking::where('status','Confirmed')->paginate(20);
-        $cobookings = Booking::where('status','Completed')->paginate(20);
-        $cabookings = Booking::where('status','Canceled')->paginate(20);
-        return view('dashboard',compact('bookings','brands','vehicles','users','cbookings','cobookings','cabookings'));
+        $bookings = DB::table('bookings')->latest()->paginate(5);
+        $vehicles = Vehicle::latest()->paginate(5);
+        return view('dashboard',compact('bookings','vehicles'));
     }
+
     public function profile(){
         return view('profile');
     }
@@ -168,35 +165,6 @@ class Frontendcontroller extends Controller
         }
 
 
-        public function changePassword()
-            {
-            return view('change-password');
-            }
-
-            public function updatePassword(Request $request)
-            {
-                    # Validation
-                    $request->validate([
-                        'old_password' => 'required',
-                        'new_password' => 'required|confirmed',
-                    ]);
-            
-            
-                    #Match The Old Password
-                    if(!Hash::check($request->old_password, auth()->user()->password)){
-                        Alert::error("Old Password Doesn't match!");
-                        return back()->with("error", "Old Password Doesn't match!");
-                    }
-            
-            
-                    #Update the new Password
-                    User::whereId(auth()->user()->id)->update([
-                        'password' => Hash::make($request->new_password)
-                    ]);
-                    Alert::success('Password updated successfully');
-                    return back()->with("status", "Password changed successfully!");
-            }
-       
 
             public function profileedit($id)
             {
@@ -213,6 +181,7 @@ class Frontendcontroller extends Controller
                     'email' => ['required', 'string', 'email', 'max:255'],
                     'address' => 'required',
                     'phone' => ['required','digits:10'],
+                    'citizenship' => 'required',
                 ]);
         
                 $user = User::findOrFail($data['id']);
@@ -220,30 +189,76 @@ class Frontendcontroller extends Controller
         
                 if($request->oldpassword){
                     if(!Hash::check($request->oldpassword, $user->password)){
+                        Alert::error("Old Password didn't match");
                         return redirect()->back()->with('error',"Old Password didn't match");
                     }
                     elseif($request->newpassword != $request->cpassword){
+                        Alert::error("Password didn't match");
                         return redirect()->back()->with('error',"Password didn't match");
                     }
                     elseif($request->newpassword == ""){
+                        Alert::error('Enter new password');
                         return redirect()->back()->with('error','Enter new password');
                     }
                     else{
                         $user->name = $data['name'];
                         $user->address = $data['address'];
                         $user->phone = $data['phone'];
+                        $user->citizenship = $data['citizenship'];
                         $user->password = Hash::make($request->newpassword);
                         $user->update();
-                        Alert::success('Profile updated successfully');
+                        Alert::success('Password updated!');
                         return redirect()->back()->with('success','Profile updated successfully');
                     }
                 } else {
                     $user->name = $data['name'];
                     $user->address = $data['address'];
                     $user->phone = $data['phone'];
+                    $user->citizenship = $data['citizenship'];
                     $user->update();
+                    Alert::success('Profile updated successfully');
                     return redirect()->back()->with('success','Profile updated successfully');
                 }
             }
                
 }
+
+
+
+
+
+
+
+
+
+
+
+
+        // public function changePassword()
+        //     {
+        //     return view('change-password');
+        //     }
+
+        //     public function updatePassword(Request $request)
+        //     {
+        //             # Validation
+        //             $request->validate([
+        //                 'old_password' => 'required',
+        //                 'new_password' => 'required|confirmed',
+        //             ]);
+            
+            
+        //             #Match The Old Password
+        //             if(!Hash::check($request->old_password, auth()->user()->password)){
+        //                 Alert::error("Old Password Doesn't match!");
+        //                 return back()->with("error", "Old Password Doesn't match!");
+        //             }
+        //             #Update the new Password
+        //             User::whereId(auth()->user()->id)->update([
+        //                 'password' => Hash::make($request->new_password)
+                        
+        //             ]);
+        //             Alert::success('Password updated successfully');
+        //             return back()->with("status", "Password changed successfully!");
+        //     }
+       

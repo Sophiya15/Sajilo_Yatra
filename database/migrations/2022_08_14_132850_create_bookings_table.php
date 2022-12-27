@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->hash_update();
             $table->string('address');
             $table->string('phone');
             $table->string('from');
