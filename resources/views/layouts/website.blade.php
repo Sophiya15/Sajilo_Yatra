@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,8 +13,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-       
-    
+
+
 
         {{--For icons Photo--}}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
@@ -46,23 +46,23 @@
                 transform: scale(1.08);
             }
 
-           
+
             .img{
                     background-image: url('images/19.jpg');
-                    background-size: cover; 
+                    background-size: cover;
                     width: screen;
-                    
+
                     position: absolute;
                 }
 
-           
-           
-            
+
+
+
             /* #videoMessage{
-                    width: 100%; 
+                    width: 100%;
                     height: 90%;
-                    position: absolute; 
-                    top: 0; 
+                    position: absolute;
+                    top: 0;
                     left: 0;
                     display: flex;
 
@@ -70,7 +70,7 @@
                     flex-direction: column;
                 } */
 
-        
+
 
             .imgs{
                 background-image: url('images/a.jpg');
@@ -85,7 +85,7 @@
                 background-repeat: no-repeat;
             }
 
-    
+
 
             .ser{
                 background-image: url('images/cars/24.jpg');
@@ -112,7 +112,7 @@
                 background-repeat: no-repeat;
             }
 
-           
+
 
             .log{
                 background-image: url('images/cars/22.jpg');
@@ -160,14 +160,14 @@
   color: black;
   padding: 14px 16px;
   font-size: 20px;
-  
+
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  
+
 }
 
 /* Dropdown content (hidden by default) */
@@ -206,7 +206,7 @@
     </head>
         <body class="font-sans antialiased">
             <div class="w-full  bg-gray-100">
-                
+
 
                     <div class="flex justify-between bg-amber-500 p-5">
                         <div>
@@ -216,17 +216,17 @@
                         <i class="fab fa-facebook fa-lg "></i>
                         <i class="fab fa-instagram fa-lg px-5"></i>
                         </div>
-                
-                        
-                        
+
+
+
                     </div>
 
-            
+
             {{--Navbar--}}
                     <div class="flex justify-between item-center px-2 py-2 w-full h-20 bg-gray-300 sticky top-0 z-20 ">
-                        
+
                         <h1 class="text-3xl text-red-800 font-serif font-bold px-5 py-2 mt-2 hover:text-violet-600 cursor-pointer"> SajiloYatra </h1>
-                        
+
                         <div class="text-black font-bold flex items-center">
                             <a  href="{{route('welcome')}}" class="px-5 py-2  hover:text-amber-700 cursor-pointer">
                                 Home
@@ -255,9 +255,9 @@
                              <a href="{{route('login')}}"  class="px-5 py-2  hover:text-amber-700 cursor-pointer">
                                  Login
                               </a>
-                
+
                             @endguest
-                            
+
 
                             @auth
                             <div class="dropdown ">
@@ -266,9 +266,9 @@
                                 </button>
                                 <ul class="dropdown-content">
                                     <li>
-                            
+
                                     </li>
-                                    <li> 
+                                    <li>
                                         @auth
                                         @if (Auth::user()->role == 'admin')
                                             <a href="{{route('dashboard')}}"  class="px-5 py-2  hover:text-amber-700 cursor-pointer">
@@ -305,7 +305,7 @@
                                  Login
                               </a>
 
-                              
+
 
                             @endguest
                             @auth
@@ -319,13 +319,13 @@
                                 <button type="submit" class="font-bold hover:bg-white hover:text-blue-400 cursor-pointer px-5 py-2">logout</button>
                             </form>
                             @endauth --}}
-                            
-                        </div> 
+
+                        </div>
                     </div>
-                    {{--Navbar Close--}}              
+                    {{--Navbar Close--}}
 
                     @yield('main')
-                
+
 
 
                         {{--footer--}}
@@ -349,7 +349,7 @@
                 <p class="py-2 px-5 pt-3 text-black text-3xl font-bold"> Do You Have Any Query?</p>
                 <p class="py-2 px-10 text-black text-2xl">Then Mail Us At </p>
                 <p class="py-2 text-violet-400 font-semibold px-11"><a href="{{route('contact')}}"> sajiloyatra@gmail.com </a> </p>
-   
+
             </div>
             {{-- <div class=" text-black rounded-lg">
                 <h1 class="text-2xl font-serif text-amber-500 mt-5"> Feedback</h1>
@@ -360,25 +360,25 @@
                         </div>
                         <div class="mt-2">
                         <input type="email" placeholder="Enter your email" class="required text-black py-3 px-2" required>
-                        </div> 
+                        </div>
                         <div class="mt-2">
                             <input type="number" placeholder="Enter Phone Number" class="required text-black py-3 px-2">
-                            </div> 
+                            </div>
 
                         <h1 class="text-2xl  pt-2"> Message</h1> <br/>
                         <textarea rows="4" cols="45" class=" text-black"> </textarea> <br/>
                          <input type="submit" value="Submit" class="rounded-full bg-slate-500   px-4 text-xl mx-2 mt-5 mb-5">
-                    </form> 
-                            
+                    </form>
+
             </div> --}}
-            
-            
+
+
     </div>
 
     <div class="grid grid-cols-2   bg-slate-800 py-4">
         <div class="w-11/12 mx-auto flex items-center">
             <p class="text-white">&copy; {{now()->year}}<a href="{{route('welcome')}}" class="px-2 hover:text-red-500">SajiloYatra</a>All Rights Reserved.</p>
-            
+
         </div>
 
         <div>
@@ -391,5 +391,4 @@
 
     @yield('js')
 
-</body> 
-       
+</body>

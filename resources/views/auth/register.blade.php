@@ -82,10 +82,10 @@
 @include('sweetalert::alert')
     <div class="w-full mx-auto pt-5 pb-5 reg">
         <div class="flex justify-center shadow-md ">
-           
+
 
             <!-- Register -->
-                <div class=" bg-white">
+                <div class=" bg-white w-[70vh]">
                     <p  class="text-gray-400 text-xs mt-5 px-10 font-bold uppercase">
                         <a href="{{route('login')}}" class="hover:text-gray-600">Already have an account ? Login Now</a>
                     </p>
@@ -161,14 +161,14 @@
                                             </p>
                                         @enderror
                                     </div>
-                                    
+
                                 <!-- Confirm Password Box Close -->
 
                                 <!-- address Box Open-->
                                     <div class="my-2">
                                         <label for="address" class="block text-gray-600 text-sm uppercase">Address <span class="text-red-500">*</span></label>
                                         <input type="text" name="address" id="address" class=" w-full rounded-md mt-2 focus:border-indigo-300 focus:ring-indigo-300 text-gray-500 @if ($errors->has('address'))
-                                       
+
                                     @endif" value="{{old('address')}}">
                                     @error('address')
                                             <p class="text-red-400 px-4">
@@ -182,27 +182,27 @@
                                     <div class="mt-2">
                                         <label for="citizenship" class="block text-gray-600 text-sm uppercase">Citizenship Number <span class="text-red-500">*</span> </label>
                                         <input type="number" name="citizenship" id="citizenship" class=" w-full rounded-md mt-2 focus:border-indigo-300 focus:ring-indigo-300 text-gray-500 @if ($errors->has('citizenship'))
-                                       
+
                                         @endif" value="{{old('citizenship')}}">
-                                       
+
                                     </div>
                                     <div>
                                         <label for="citizenship" class="block text-gray-600 text-sm uppercase">Citizenship Photo <span class="text-red-500">*</span> </label>
                                         <input type="file" name="photopath0" id="photopath0" class=" w-full rounded-md mt-2 focus:border-indigo-300 focus:ring-indigo-300 text-gray-500 @if ($errors->has('photopath0'))
                                         border-red-500
                                     @endif" value="{{old('photopath0')}}">
-                                   
+
                                     </div>
                                 <!-- Citizenship Box Close -->
 
                                 <input type="submit" value="Register" id="myFormSubmit"class="w-full rounded-md bg-indigo-300 text-black hover:bg-indigo-500 py-1 my-5 cursor-pointer ">
-                                
+
                             </form>
 
 
                         </div>
                     <!-- Register Form Close -->
-                    
+
                 </div>
             <!-- Register Close -->
         </div>
