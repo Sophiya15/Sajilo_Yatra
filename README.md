@@ -5,15 +5,15 @@ Project.**
 
 ![Home Page](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/FireShot%20Capture%20040%20-%20Laravel%20-%20127.0.0.1.jpg)
 
-![Vechicle Viewpage](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/Screenshot%202024-10-25%20223419.png)
+![Vechicle Viewpage](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/Screenshot%202024-10-25%20223419.png)
 
-![All Booking](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/All%20Booking.jpg)
+![All Booking](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/All%20Booking.jpg)
 
-![profile](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/Profile.png)
+![profile](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/Profile.png)
 
-![Bookings](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/Screenshot%202024-10-25%20225101.png)
+![Bookings](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/Screenshot%202024-10-25%20225101.png)
 
-![Cars](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/Cars.jpg)
+![Cars](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/Cars.jpg)
 
-![Register](https://github.com/Sophiya15/Sajilo_Yatra/blob/main/public/Images/Visible_Photos/FireShot%20Capture%20041%20-%20Laravel%20-%20127.0.0.1.png)
+![Register](https://github.com/Sophiya15/Sajilo_Yatra/blob/master/public/Images/Visible_Photos/FireShot%20Capture%20041%20-%20Laravel%20-%20127.0.0.1.png)
 
